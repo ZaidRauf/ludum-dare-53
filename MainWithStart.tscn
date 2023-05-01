@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://63f7qio5shuy"]
+
+[ext_resource type="PackedScene" uid="uid://bfsotfbh7ck80" path="res://Main.tscn" id="1_0wqxa"]
+[ext_resource type="Script" path="res://MainWithStart.gd" id="1_lneg4"]
+[ext_resource type="Texture2D" uid="uid://g75735mty016" path="res://assets/milk_bottle.png" id="3_l45ss"]
+
+[node name="MainWithStart" type="Node2D"]
+script = ExtResource("1_lneg4")
+
+[node name="Main" parent="." instance=ExtResource("1_0wqxa")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StartMenu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/StartMenu"]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 647.0
+color = Color(0.172549, 0.219608, 0.482353, 1)
+
+[node name="StartLabel" type="Label" parent="CanvasLayer/StartMenu"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 44.0
+offset_right = 1022.0
+offset_bottom = 157.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 80
+text = "Extreme Milk Delivery"
+horizontal_alignment = 1
+
+[node name="SpaceStartLabel" type="Label" parent="CanvasLayer/StartMenu"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 181.0
+offset_right = 1022.0
+offset_bottom = 294.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Press Space to Start"
+horizontal_alignment = 1
+
+[node name="SpaceStartLabel2" type="Label" parent="CanvasLayer/StartMenu"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 286.0
+offset_right = 1022.0
+offset_bottom = 399.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Press Esc to Quit"
+horizontal_alignment = 1
+
+[node name="InstructionsLabel" type="Label" parent="CanvasLayer/StartMenu"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 377.0
+offset_right = 1105.0
+offset_bottom = 602.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "Instructions:
+- WASD or Arrow keys to Move
+- Press Space to toss Milk at people with a raised hand to get points
+- Avoid getting hit by the red competitor milk trucks
+- Pick up randomly spawning wrenches at intersections to fix your truck"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/StartMenu"]
+position = Vector2(105, 323)
+rotation = 0.265833
+scale = Vector2(4.15625, 4.15625)
+texture = ExtResource("3_l45ss")

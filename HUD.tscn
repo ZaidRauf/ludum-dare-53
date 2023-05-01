@@ -1,0 +1,137 @@
+[gd_scene load_steps=4 format=3 uid="uid://pw201fifxmo5"]
+
+[ext_resource type="Script" path="res://HUD.gd" id="1_w3i5b"]
+[ext_resource type="Texture2D" uid="uid://78px8eyng6pv" path="res://assets/wrench.png" id="2_m6lmp"]
+[ext_resource type="Texture2D" uid="uid://g75735mty016" path="res://assets/milk_bottle.png" id="2_rvqko"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_w3i5b")
+metadata/_edit_vertical_guides_ = []
+
+[node name="HealthLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 46.0
+offset_top = 12.0
+offset_right = 254.0
+offset_bottom = 57.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 30
+text = "Health: 10 / 10"
+
+[node name="DeliveryLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 49.0
+offset_top = 76.0
+offset_right = 257.0
+offset_bottom = 121.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 30
+text = "Deliveries: 0"
+
+[node name="QuitLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 126.0
+offset_right = 228.0
+offset_bottom = 171.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 20
+text = "Esc To Quit"
+horizontal_alignment = 1
+
+[node name="WrenchUISprite" type="Sprite2D" parent="."]
+position = Vector2(22.2109, 41.4219)
+scale = Vector2(1.17432, 1.04932)
+texture = ExtResource("2_m6lmp")
+
+[node name="MilkUISprite" type="Sprite2D" parent="."]
+position = Vector2(26, 99)
+rotation = -0.1625
+scale = Vector2(0.87723, 0.87723)
+texture = ExtResource("2_rvqko")
+
+[node name="DeathHUD" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -39.0
+offset_right = 20.0
+offset_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="DeathHUD"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 1172.0
+offset_bottom = 687.0
+color = Color(1, 1, 1, 0.243137)
+
+[node name="DeathLabel" type="Label" parent="DeathHUD"]
+layout_mode = 1
+offset_left = 416.0
+offset_top = 121.0
+offset_right = 776.0
+offset_bottom = 207.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 60
+text = "Game Over!"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="FinalScoreLabel" type="Label" parent="DeathHUD"]
+layout_mode = 1
+offset_left = 416.0
+offset_top = 273.0
+offset_right = 799.0
+offset_bottom = 359.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 60
+text = "Final Score: 0"
+horizontal_alignment = 1
+
+[node name="RestartLabel" type="Label" parent="DeathHUD"]
+layout_mode = 1
+offset_left = 291.0
+offset_top = 408.0
+offset_right = 937.0
+offset_bottom = 494.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 60
+text = "Press Space to Restart"
+horizontal_alignment = 1
+
+[node name="ExitLabel" type="Label" parent="DeathHUD"]
+layout_mode = 1
+offset_left = 291.0
+offset_top = 545.0
+offset_right = 937.0
+offset_bottom = 631.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 60
+text = "Press Esc to Exit"
+horizontal_alignment = 1

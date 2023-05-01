@@ -1,0 +1,719 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfsotfbh7ck80"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_1wat0"]
+[ext_resource type="PackedScene" uid="uid://b6bna2ic31u40" path="res://Ship.tscn" id="2_61up4"]
+[ext_resource type="PackedScene" uid="uid://n8r0hhw4x77j" path="res://Map.tscn" id="2_eckye"]
+[ext_resource type="PackedScene" uid="uid://bmoicktcau8ar" path="res://Survivor.tscn" id="4_wmexk"]
+[ext_resource type="PackedScene" uid="uid://cn6iq7exasbht" path="res://Chaser.tscn" id="5_rwbna"]
+[ext_resource type="PackedScene" uid="uid://pw201fifxmo5" path="res://HUD.tscn" id="6_xybyl"]
+[ext_resource type="PackedScene" uid="uid://pidvsf8rnfwf" path="res://WrenchPickup.tscn" id="7_bfn60"]
+[ext_resource type="AudioStream" uid="uid://dku3nb46barhl" path="res://assets/hit.wav" id="8_fvom7"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_1wat0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+zoom = Vector2(3, 3)
+
+[node name="Map" parent="." instance=ExtResource("2_eckye")]
+position = Vector2(576, 324)
+
+[node name="WrenchPickup" parent="." instance=ExtResource("7_bfn60")]
+position = Vector2(561, 241)
+
+[node name="Ship" parent="." instance=ExtResource("2_61up4")]
+position = Vector2(576, 324)
+
+[node name="Chaser_Left" parent="." instance=ExtResource("5_rwbna")]
+position = Vector2(475, 455)
+
+[node name="Chaser_Right" parent="." instance=ExtResource("5_rwbna")]
+position = Vector2(644, 459)
+chaser_type_lefty = false
+
+[node name="SurvivorPatrols" type="Node2D" parent="."]
+
+[node name="SurvivorPatrol1" type="Node2D" parent="SurvivorPatrols"]
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol1"]
+position = Vector2(-652, 306)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol1"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol1" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol2" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-3, 476)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol2"]
+position = Vector2(-652, 306)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol2"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol2" instance=ExtResource("4_wmexk")]
+position = Vector2(-641, 306)
+
+[node name="SurvivorPatrol25" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-9, 895)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol25"]
+position = Vector2(-652, 306)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol25"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol25" instance=ExtResource("4_wmexk")]
+position = Vector2(-641, 306)
+
+[node name="SurvivorPatrol3" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1286, 477)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol3"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol3"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol3" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol4" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1286, 2)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol4"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol4"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol4" instance=ExtResource("4_wmexk")]
+position = Vector2(-1092, 306)
+
+[node name="SurvivorPatrol16" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1283, 612)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol16"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol16"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol16" instance=ExtResource("4_wmexk")]
+position = Vector2(-1092, 306)
+
+[node name="SurvivorPatrol11" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1290, -147)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol11"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol11"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol11" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol12" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1286, -922)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol12"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol12"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol12" instance=ExtResource("4_wmexk")]
+position = Vector2(-1092, 306)
+
+[node name="SurvivorPatrol13" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1289, -1072)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol13"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol13"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol13" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol15" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1282, -2376)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol15"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol15"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol15" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol17" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1832, -2371)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol17"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol17"]
+position = Vector2(-685, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol17" instance=ExtResource("4_wmexk")]
+position = Vector2(-686, 304)
+
+[node name="SurvivorPatrol18" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1826, -2249)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol18"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol18"]
+position = Vector2(-685, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol18" instance=ExtResource("4_wmexk")]
+position = Vector2(-686, 304)
+
+[node name="SurvivorPatrol19" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1832, -1061)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol19"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol19"]
+position = Vector2(-685, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol19" instance=ExtResource("4_wmexk")]
+position = Vector2(-686, 304)
+
+[node name="SurvivorPatrol20" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1830, -935)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol20"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol20"]
+position = Vector2(-685, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol20" instance=ExtResource("4_wmexk")]
+position = Vector2(-686, 304)
+
+[node name="SurvivorPatrol21" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1829, -134)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol21"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol21"]
+position = Vector2(-685, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol21" instance=ExtResource("4_wmexk")]
+position = Vector2(-686, 304)
+
+[node name="SurvivorPatrol22" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1829, -5)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol22"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol22"]
+position = Vector2(-685, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol22" instance=ExtResource("4_wmexk")]
+position = Vector2(-686, 304)
+
+[node name="SurvivorPatrol23" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1831, 473)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol23"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol23"]
+position = Vector2(-685, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol23" instance=ExtResource("4_wmexk")]
+position = Vector2(-686, 304)
+
+[node name="SurvivorPatrol24" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1824, 608)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol24"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol24"]
+position = Vector2(-685, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol24" instance=ExtResource("4_wmexk")]
+position = Vector2(-686, 304)
+
+[node name="SurvivorPatrol14" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-1285, -2245)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol14"]
+position = Vector2(-1094, 312)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol14"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol14" instance=ExtResource("4_wmexk")]
+position = Vector2(-1092, 306)
+
+[node name="SurvivorPatrol5" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-3, -141)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol5"]
+position = Vector2(-652, 306)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol5"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol5" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol47" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(0, -898)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol47"]
+position = Vector2(-652, 306)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol47"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol47" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol6" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(3, -907)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol6"]
+position = Vector2(-652, 306)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol6"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol6" instance=ExtResource("4_wmexk")]
+position = Vector2(-641, 306)
+
+[node name="SurvivorPatrol7" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-9, -1069)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol7"]
+position = Vector2(-652, 306)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol7"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol7" instance=ExtResource("4_wmexk")]
+position = Vector2(-641, 306)
+
+[node name="SurvivorPatrol8" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-4, -2236)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol8"]
+position = Vector2(-652, 306)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol8"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol8" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol26" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(2532, -2223)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol26"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol26"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol26" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol27" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(2544, -136)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol27"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol27"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol27" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol28" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(2534, 471)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol28"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol28"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol28" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol31" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(2534, 629)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol31"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol31"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol31" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol29" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(2540, -906)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol29"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol29"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol29" instance=ExtResource("4_wmexk")]
+position = Vector2(-1169, 296)
+
+[node name="SurvivorPatrol32" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(2551, -2369)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol32"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol32"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol32" instance=ExtResource("4_wmexk")]
+position = Vector2(-1169, 296)
+
+[node name="SurvivorPatrol34" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(4327, -2372)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol34"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol34"]
+position = Vector2(-427, 312)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol34" instance=ExtResource("4_wmexk")]
+position = Vector2(-1169, 296)
+
+[node name="SurvivorPatrol35" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(4338, -2214)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol35"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol35"]
+position = Vector2(-427, 312)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol35" instance=ExtResource("4_wmexk")]
+position = Vector2(-1169, 296)
+
+[node name="SurvivorPatrol36" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(4324, -1071)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol36"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol36"]
+position = Vector2(-427, 312)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol36" instance=ExtResource("4_wmexk")]
+position = Vector2(-1169, 296)
+
+[node name="SurvivorPatrol37" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(4326, -893)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol37"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol37"]
+position = Vector2(-427, 312)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol37" instance=ExtResource("4_wmexk")]
+position = Vector2(-1169, 296)
+
+[node name="SurvivorPatrol38" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(4333, -148)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol38"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol38"]
+position = Vector2(-427, 312)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol38" instance=ExtResource("4_wmexk")]
+position = Vector2(-1169, 296)
+
+[node name="SurvivorPatrol39" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(4333, 16)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol39"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol39"]
+position = Vector2(-427, 312)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol39" instance=ExtResource("4_wmexk")]
+position = Vector2(-1169, 296)
+
+[node name="SurvivorPatrol40" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(4327, 477)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol40"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol40"]
+position = Vector2(-427, 312)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol40" instance=ExtResource("4_wmexk")]
+position = Vector2(-1169, 296)
+
+[node name="SurvivorPatrol41" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(4334, 625)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol41"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol41"]
+position = Vector2(-427, 312)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol41" instance=ExtResource("4_wmexk")]
+position = Vector2(-1169, 296)
+
+[node name="SurvivorPatrol33" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(2524, 7)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol33"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol33"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol33" instance=ExtResource("4_wmexk")]
+position = Vector2(-1169, 296)
+
+[node name="SurvivorPatrol30" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(2530, -1064)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol30"]
+position = Vector2(-1173, 311)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol30"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol30" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol9" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(1, 612)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol9"]
+position = Vector2(-652, 306)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol9"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol9" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol10" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(-2, -2379)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol10"]
+position = Vector2(-652, 306)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol10"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol10" instance=ExtResource("4_wmexk")]
+position = Vector2(497, 304)
+
+[node name="SurvivorPatrol42" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(753, -2229)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol42"]
+position = Vector2(-117, 301)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol42"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol42" instance=ExtResource("4_wmexk")]
+position = Vector2(488, 311)
+
+[node name="SurvivorPatrol43" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(744, -1062)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol43"]
+position = Vector2(-117, 301)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol43"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol43" instance=ExtResource("4_wmexk")]
+position = Vector2(488, 311)
+
+[node name="SurvivorPatrol44" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(744, -922)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol44"]
+position = Vector2(-117, 301)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol44"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol44" instance=ExtResource("4_wmexk")]
+position = Vector2(488, 311)
+
+[node name="SurvivorPatrol45" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(741, 6)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol45"]
+position = Vector2(-117, 301)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol45"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol45" instance=ExtResource("4_wmexk")]
+position = Vector2(488, 311)
+
+[node name="SurvivorPatrol46" type="Node2D" parent="SurvivorPatrols"]
+position = Vector2(748, 620)
+metadata/_edit_group_ = true
+
+[node name="MoveGoal1" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol46"]
+position = Vector2(-117, 301)
+
+[node name="MoveGoal2" type="Node2D" parent="SurvivorPatrols/SurvivorPatrol46"]
+position = Vector2(498, 307)
+
+[node name="Survivor" parent="SurvivorPatrols/SurvivorPatrol46" instance=ExtResource("4_wmexk")]
+position = Vector2(488, 311)
+
+[node name="CanvasHUDLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasHUDLayer" instance=ExtResource("6_xybyl")]
+
+[node name="WrenchSpawnLocations" type="Node2D" parent="."]
+
+[node name="WrenchSpawn1" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(-2447, -1999)
+
+[node name="WrenchSpawn2" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(-711, -1999)
+
+[node name="WrenchSpawn3" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(569, -1999)
+
+[node name="WrenchSpawn4" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(1301, -1983)
+
+[node name="WrenchSpawn5" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(3089, -1999)
+
+[node name="WrenchSpawn6" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(-2447, -703)
+
+[node name="WrenchSpawn7" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(-711, -703)
+
+[node name="WrenchSpawn8" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(569, -703)
+
+[node name="WrenchSpawn9" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(1301, -687)
+
+[node name="WrenchSpawn10" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(3089, -703)
+
+[node name="WrenchSpawn11" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(-2455, 241)
+
+[node name="WrenchSpawn12" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(-719, 241)
+
+[node name="WrenchSpawn13" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(561, 241)
+
+[node name="WrenchSpawn14" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(1293, 257)
+
+[node name="WrenchSpawn15" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(3081, 241)
+
+[node name="WrenchSpawn16" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(-2447, 849)
+
+[node name="WrenchSpawn17" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(-711, 849)
+
+[node name="WrenchSpawn18" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(569, 849)
+
+[node name="WrenchSpawn19" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(1301, 865)
+
+[node name="WrenchSpawn20" type="Node2D" parent="WrenchSpawnLocations"]
+position = Vector2(3089, 849)
+
+[node name="HitPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_fvom7")
+volume_db = -12.0
+
+[connection signal="picked_up" from="WrenchPickup" to="." method="_on_wrench_pickup_picked_up"]
+[connection signal="character_hit" from="Chaser_Left" to="." method="_on_chaser_left_character_hit"]
+[connection signal="character_hit" from="Chaser_Right" to="." method="_on_chaser_right_character_hit"]

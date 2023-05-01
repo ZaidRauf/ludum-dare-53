@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://bmoicktcau8ar"]
+
+[ext_resource type="Script" path="res://Survivor.gd" id="1_o8c7s"]
+[ext_resource type="Texture2D" uid="uid://ba858i1c830si" path="res://assets/Survivor.png" id="1_xm6jw"]
+[ext_resource type="Texture2D" uid="uid://d28dub5ngerei" path="res://assets/Survivor_walk.png" id="2_r3gme"]
+[ext_resource type="Texture2D" uid="uid://dpk8dvli3e0fc" path="res://assets/Survivor_want_milk.png" id="4_i4eub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0p41"]
+atlas = ExtResource("1_xm6jw")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxdip"]
+atlas = ExtResource("1_xm6jw")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgy27"]
+atlas = ExtResource("2_r3gme")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkp1v"]
+atlas = ExtResource("2_r3gme")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0nc6"]
+atlas = ExtResource("4_i4eub")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxbxi"]
+atlas = ExtResource("4_i4eub")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dnl8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0p41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxdip")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgy27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkp1v")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0nc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxbxi")
+}],
+"loop": true,
+"name": &"want_milk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vctgv"]
+radius = 8.0
+height = 44.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oytsd"]
+radius = 68.0
+height = 136.0
+
+[node name="Survivor" type="CharacterBody2D"]
+script = ExtResource("1_o8c7s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dnl8i")
+animation = &"want_milk"
+frame_progress = 0.0925801
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CapsuleShape2D_vctgv")
+
+[node name="SaveRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SaveRadius"]
+position = Vector2(0, -9)
+shape = SubResource("CapsuleShape2D_oytsd")
+
+[node name="WantMilkTimeout" type="Timer" parent="."]
+one_shot = true
+
+[node name="MoveTimeout" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="SaveRadius" to="." method="_on_save_radius_area_entered"]
+[connection signal="timeout" from="WantMilkTimeout" to="." method="_on_want_milk_timeout_timeout"]
+[connection signal="timeout" from="MoveTimeout" to="." method="_on_move_timeout_timeout"]

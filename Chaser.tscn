@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn6iq7exasbht"]
+
+[ext_resource type="Texture2D" uid="uid://cc8j1l3ym2p6m" path="res://assets/tire.png" id="1_5enpw"]
+[ext_resource type="Script" path="res://Chaser.gd" id="1_v1v1n"]
+[ext_resource type="Texture2D" uid="uid://dh3n0536fqhs1" path="res://assets/car_sprite_2.png" id="3_y2knl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq4cc"]
+size = Vector2(27, 50)
+
+[node name="Chaser" type="CharacterBody2D"]
+script = ExtResource("1_v1v1n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.499999, -9.53674e-07)
+shape = SubResource("RectangleShape2D_aq4cc")
+
+[node name="FrontRightWheel" type="Sprite2D" parent="."]
+position = Vector2(10, -17)
+texture = ExtResource("1_5enpw")
+
+[node name="FrontLeftWheel" type="Sprite2D" parent="."]
+position = Vector2(-11, -17)
+texture = ExtResource("1_5enpw")
+
+[node name="CarBody" type="Sprite2D" parent="."]
+position = Vector2(0.500002, -9.53674e-07)
+scale = Vector2(1.03125, 0.78125)
+texture = ExtResource("3_y2knl")

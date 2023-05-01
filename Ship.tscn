@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6bna2ic31u40"]
+
+[ext_resource type="Script" path="res://Ship.gd" id="1_n2cdo"]
+[ext_resource type="Texture2D" uid="uid://b5ud6ynwhnqvp" path="res://assets/car_sprite_3.png" id="3_144wq"]
+[ext_resource type="Texture2D" uid="uid://cc8j1l3ym2p6m" path="res://assets/tire.png" id="3_eu6an"]
+[ext_resource type="AudioStream" uid="uid://dtlys8nkkpxdg" path="res://assets/throw.wav" id="4_l06oc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq4cc"]
+size = Vector2(27, 50)
+
+[node name="Ship" type="CharacterBody2D"]
+script = ExtResource("1_n2cdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.499999, -9.53674e-07)
+shape = SubResource("RectangleShape2D_aq4cc")
+
+[node name="FrontRightWheel" type="Sprite2D" parent="."]
+position = Vector2(10, -17)
+texture = ExtResource("3_eu6an")
+
+[node name="FrontLeftWheel" type="Sprite2D" parent="."]
+position = Vector2(-11, -17)
+texture = ExtResource("3_eu6an")
+
+[node name="CarBody" type="Sprite2D" parent="."]
+position = Vector2(0.500002, -9.53674e-07)
+scale = Vector2(1.03125, 0.78125)
+texture = ExtResource("3_144wq")
+
+[node name="MilkThrowTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MilkThrowPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_l06oc")
+volume_db = -12.0
+
+[connection signal="timeout" from="MilkThrowTimer" to="." method="_on_milk_throw_timeout_timeout"]
